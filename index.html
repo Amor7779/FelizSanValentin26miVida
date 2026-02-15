@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Munequita</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN6R4TV20E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN6R4TV20E');
+  </script>
+
+  <style>
+    /* Reset y estilo general */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden; /* Evita scroll del fondo */
+    }
+
+    /* Fondo */
+    body {
+      background: url('fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Contenedor de la carta */
+    .carta-container {
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto; /* Scroll solo en la carta */
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 2s ease forwards;
+    }
+
+    /* Fade-in del texto */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Estilo del texto */
+    .carta-container p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    /* Música invisible */
+    audio {
+      display: none;
+    }
+
+    /* Efecto de nieve */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      font-size: 1.5em;
+      color: white;
+      z-index: 9999;
+      pointer-events: none;
+      user-select: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+
+    /* Scroll suave dentro de la carta */
+    .carta-container {
+      scroll-behavior: smooth;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .carta-container {
+        padding: 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carta-container">
+    <p>Dicen que la vida esta hecha de casualidades, pero la tuya fue la mas perfecta de todas...</p>
+    <p>Te busque por muchos anos, muchisimos anos y jamas te olvide porque esa mirada de cielo puro, esos ojitos hermosos, esa sonrisa encantadora y sanadora se quedaron para siempre en mi piel mi vida...</p>
+    <p>Y asi llegaste justo cuando mi alma pedia a gritos carino, compresion, sonrisas, simplemente que estes ahi sentadita en tu salita, o en tu comedor, en tu cuarto, en el bano, en la compu, en la ventanita del amor, en el pasillo de la pasion infinita no importa donde estabas porque tu presencia hacia toda esa magia mas hermosa dulce y apasionada que jamas crei vivir...</p>
+    <p>Te confieso que en algun momento de mi vida pense porque no tuve conmigo alguna de esas camaras gigantes o cualquier camara para haberte tomado una fotito y haberla guardado conmigo...</p>
+    <p>Es que ni siquiera teniamos celulares inteligentes en esa epoca y aunque siempre te pense desde el pre jamas saliste de mi corazon mi vida...</p>
+    <p>Hoy entiendo que no fue un azar cualquiera, sino la respuesta mas hermosa que la vida me pudo regalar...</p>
+    <p>Porque tenerte cerca es recordar lo que parecia imposible tambien puede parecerse eterno y este amor que siento por ti es eterno mi vida...</p>
+    <p>De todos los millones de personas en este mundo fuiste tu mi munequita linda solamente tu...</p>
+    <p>YO se que tu eres mi destino mi vida...</p>
+    <p>Dicen que el alma tiene caminos secretos, que hay hilos invisibles que nos guian sin que lo sepamos...</p>
+    <p>Y sabes mi vida? no lo entendia hasta que llegaste tu, desde entonces, todo tiene sentido, ese cielo simple, ese pajarito majestuoso, esos venados corriendo en manadas, esas noches en que sonaba ser amado sintiendo que eras tu quien me acariciaba el cabello, esas gotitas de agua cayendo en la ventana...</p>
+    <p>Porque si el alma tiene un destino la mia fue creada para encontrarte, para hacerte reir, para caer rendido en tus brazos de amor de pasion pura, para escribirnos poesias en la piel y despues banarnos para abrazarnos y quedarnos una dos quizas hasta tres horas bajo la ducha...</p>
+    <p>Son tantas cosas que solamente contigo tienen sentido mi vida...</p>
+    <p>Por favor te ruego que me permitas hablarte mi vida, te extrano demasiado mi vida mas de lo que jamas pude imaginar...</p>
+    <p>Te amo y te amare por siempre mi vida...</p>
+  </div>
+
+  <!-- Música -->
+  <audio id="musica" loop>
+    <source src="Noquieroperderte.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    // Reproducir música al primer click en cualquier lugar
+    let musica = document.getElementById('musica');
+    let musicaReproducida = false;
+    document.body.addEventListener('click', function() {
+      if (!musicaReproducida) {
+        musica.play();
+        musicaReproducida = true;
+      }
+    });
+
+    // Crear efecto de nieve
+    function crearNieve() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(crearNieve, 200);
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Carta de Amor</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RFD2YVQWXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RFD2YVQWXX');
+</script>
+
+<style>
+  /* Reset y estilos base */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif; }
+
+  /* Fondo con tu foto */
+  body {
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+  }
+
+  /* Efecto de rosas cayendo */
+  .rose {
+    position: fixed;
+    top: -50px;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 10;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+    }
+  }
+
+  /* Carta centrada y scrollable solo en ella */
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  }
+
+  /* Fade-in de texto */
+  .card p {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+  }
+
+  .card p:nth-child(1) { animation-delay: 0.5s; }
+  .card p:nth-child(2) { animation-delay: 2s; }
+  .card p:nth-child(3) { animation-delay: 4s; }
+  .card p:nth-child(4) { animation-delay: 6s; }
+  .card p:nth-child(5) { animation-delay: 8s; }
+  .card p:nth-child(6) { animation-delay: 10s; }
+  .card p:nth-child(7) { animation-delay: 12s; }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* Mensaje final dorado con efecto rojo */
+  .final-message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px red, 0 0 20px darkred;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px red, 0 0 20px darkred; }
+    100% { text-shadow: 0 0 20px red, 0 0 40px darkred; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Contenedor de la carta -->
+<div class="card">
+  <p>Eres mi coincidencia favorita mi vida... dicen que la vida esta hecha de casualidades, pero la tuya fue la mas perfecta de todas...</p>
+  <p>Te busque por muchos anos, muchisimos anos y jamas te olvide porque esa mirada de cielo puro, esos ojitos hermosos, esa sonrisa encantadora y sanadora se quedaron para siempre en mi piel mi vida...</p>
+  <p>Y asi llegaste justo cuando mi alma pedia a gritos carino, compresion, sonrisas, simplemente que estes ahi sentadita en tu salita, o en tu comedor, en tu cuarto, en el bano, en la compu, en la ventanita del amor, en el pasillo de la pasion infinita no importa donde estabas porque tu presencia hacia toda esa magia mas hermosa dulce y apasionada que jamas crei vivir...</p>
+  <p>Te confieso que en algun momento de mi vida pense porque no tuve conmigo alguna de esas camaras gigantes o cualquier camara para haberte tomado una fotito y haberla guardado conmigo...</p>
+  <p>Es que ni siquiera teniamos celulares inteligentes en esa epoca y aunque siempre te pense desde el pre jamas saliste de mi corazon mi vida...</p>
+  <p>Hoy entiendo que no fue un azar cualquiera, sino la respuesta mas hermosa que la vida me pudo regalar... Porque tenerte cerca es recordar lo que parecia imposible tambien puede parecerse eterno y este amor que siento por ti es eterno mi vida...</p>
+  <p>De todos los millones de personas en este mundo fuiste tu mi munequita linda solamente tu... YO se que tu eres mi destino mi vida...</p>
+  <p>Dicen que el alma tiene caminos secretos, que hay hilos invisibles que nos guian sin que lo sepamos... Y sabes mi vida? no lo entendia hasta que llegaste tu, desde entonces, todo tiene sentido, ese cielo simple, ese pajarito majestuoso, esos venados corriendo en manadas, esas noches en que sonaba ser amado sintiendo que eras tu quien me acariciaba el cabello, esas gotitas de agua cayendo en la ventana...</p>
+  <p>Porque si el alma tiene un destino la mia fue creada para encontrarte, para hacerte reir, para caer rendido en tus brazos de amor de pasion pura, para escribirnos poesias en la piel y despues banarnos para abrazarnos y quedarnos una dos quizas hasta tres horas bajo la ducha...</p>
+  <p>Son tantas cosas que solamente contigo tienen sentido mi vida... Por favor te ruego que me permitas hablarte mi vida, te extrano demasiado mi vida mas de lo que jamas pude imaginar... Te amo y te amare por siempre mi vida...</p>
+
+  <div class="final-message">Te extrano demasiado vida mia…</div>
+</div>
+
+<!-- Música que inicia con click -->
+<audio id="music" loop>
+  <source src="Noquieroperderte.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Música al hacer click en cualquier parte del body
+  document.body.addEventListener('click', function() {
+    var audio = document.getElementById('music');
+    if(audio.paused){
+      audio.volume = 0;
+      audio.play();
+      // Fade-in de música
+      var vol = 0;
+      var fade = setInterval(function(){
+        if(vol < 1){
+          vol += 0.02;
+          audio.volume = vol;
+        } else {
+          clearInterval(fade);
+        }
+      }, 100);
+    }
+  });
+
+  // Generar rosas cayendo
+  function createRose(){
+    var rose = document.createElement('img');
+    rose.src = 'rosa.png'; // imagen de la rosa
+    rose.className = 'rose';
+    rose.style.left = Math.random() * window.innerWidth + 'px';
+    rose.style.animationDuration = (5 + Math.random() * 5) + 's';
+    rose.style.width = (30 + Math.random() * 20) + 'px';
+    document.body.appendChild(rose);
+    setTimeout(()=>{rose.remove()}, 10000);
+  }
+  setInterval(createRose, 500);
+</script>
+
+</body>
+</html>
